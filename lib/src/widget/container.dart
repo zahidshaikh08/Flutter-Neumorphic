@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart' as material;
 import 'package:flutter/widgets.dart';
 
-import '../neumorphic_box_shape.dart';
 import '../decoration/neumorphic_decorations.dart';
+import '../neumorphic_box_shape.dart';
 import '../theme/neumorphic_theme.dart';
 import 'clipper/neumorphic_box_shape_clipper.dart';
 
-export '../neumorphic_box_shape.dart';
 export '../decoration/neumorphic_decorations.dart';
+export '../neumorphic_box_shape.dart';
 export '../theme/neumorphic_theme.dart';
 
 /// The main container of the Neumorphic UI KIT
@@ -52,8 +52,8 @@ class Neumorphic extends StatelessWidget {
 
   final NeumorphicStyle? style;
   final TextStyle? textStyle;
-  final EdgeInsets padding;
-  final EdgeInsets margin;
+  final EdgeInsetsGeometry padding;
+  final EdgeInsetsGeometry margin;
   final Curve curve;
   final Duration duration;
   final bool
@@ -74,9 +74,8 @@ class Neumorphic extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = NeumorphicTheme.currentTheme(context);
-    final NeumorphicStyle style = (this.style ?? NeumorphicStyle())
-        .copyWithThemeIfNull(theme)
-        .applyDisableDepth();
+    final NeumorphicStyle style =
+        (this.style ?? NeumorphicStyle()).copyWithThemeIfNull(theme).applyDisableDepth();
 
     return _NeumorphicContainer(
       padding: this.padding,
@@ -95,11 +94,11 @@ class _NeumorphicContainer extends StatelessWidget {
   final NeumorphicStyle style;
   final TextStyle? textStyle;
   final Widget? child;
-  final EdgeInsets margin;
+  final EdgeInsetsGeometry margin;
   final Duration duration;
   final Curve curve;
   final bool drawSurfaceAboveChild;
-  final EdgeInsets padding;
+  final EdgeInsetsGeometry padding;
 
   _NeumorphicContainer({
     Key? key,

@@ -10,7 +10,7 @@ class NeumorphicAppBarThemeData {
   final Color color;
   final IconThemeData? iconTheme;
   final NeumorphicStyle buttonStyle;
-  final EdgeInsets buttonPadding;
+  final EdgeInsetsGeometry buttonPadding;
   final bool? centerTitle;
   final TextStyle? textStyle;
   final NeumorphicAppBarIcons icons;

@@ -75,7 +75,7 @@ class NeumorphicAppBar extends StatefulWidget implements PreferredSizeWidget {
 
   final NeumorphicStyle? buttonStyle;
 
-  final EdgeInsets? buttonPadding;
+  final EdgeInsetsGeometry? buttonPadding;
 
   final TextStyle? textStyle;
 
@@ -140,8 +140,7 @@ class NeumorphicAppBarState extends State<NeumorphicAppBar> {
     final nTheme = NeumorphicTheme.of(context);
     final ModalRoute<dynamic>? parentRoute = ModalRoute.of(context);
     final bool canPop = parentRoute?.canPop ?? false;
-    final bool useCloseButton =
-        parentRoute is PageRoute<dynamic> && parentRoute.fullscreenDialog;
+    final bool useCloseButton = parentRoute is PageRoute<dynamic> && parentRoute.fullscreenDialog;
     final ScaffoldState? scaffold = Scaffold.maybeOf(context);
     final bool hasDrawer = scaffold?.hasDrawer ?? false;
     final bool hasEndDrawer = scaffold?.hasEndDrawer ?? false;
@@ -180,8 +179,7 @@ class NeumorphicAppBarState extends State<NeumorphicAppBar> {
     if (title != null) {
       final AppBarTheme appBarTheme = AppBarTheme.of(context);
       title = DefaultTextStyle(
-        style: (appBarTheme.textTheme?.headline5 ??
-                Theme.of(context).textTheme.headline5!)
+        style: (appBarTheme.textTheme?.headline5 ?? Theme.of(context).textTheme.headline5!)
             .merge(widget.textStyle ?? nTheme?.current?.appBarTheme.textStyle),
         softWrap: false,
         overflow: TextOverflow.ellipsis,
@@ -196,10 +194,9 @@ class NeumorphicAppBarState extends State<NeumorphicAppBar> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: widget.actions!
             .map((child) => Padding(
-                  padding: EdgeInsets.only(left: widget.actionSpacing),
+                  padding: EdgeInsetsDirectional.only(start: widget.actionSpacing),
                   child: ConstrainedBox(
-                    constraints: const BoxConstraints.tightFor(
-                        width: kToolbarHeight, height: kToolbarHeight),
+                    constraints: const BoxConstraints.tightFor(width: kToolbarHeight, height: kToolbarHeight),
                     child: child,
                   ),
                 ))
@@ -207,8 +204,7 @@ class NeumorphicAppBarState extends State<NeumorphicAppBar> {
       );
     } else if (hasEndDrawer) {
       actions = ConstrainedBox(
-        constraints: const BoxConstraints.tightFor(
-            width: kToolbarHeight, height: kToolbarHeight),
+        constraints: const BoxConstraints.tightFor(width: kToolbarHeight, height: kToolbarHeight),
         child: NeumorphicButton(
           padding: widget.buttonPadding,
           style: widget.buttonStyle,
@@ -234,8 +230,7 @@ class NeumorphicAppBarState extends State<NeumorphicAppBar> {
                 leading: leading,
                 middle: title,
                 trailing: actions,
-                centerMiddle:
-                    widget._getEffectiveCenterTitle(theme, nTheme!.current!),
+                centerMiddle: widget._getEffectiveCenterTitle(theme, nTheme!.current!),
                 middleSpacing: widget.titleSpacing,
               ),
             ),

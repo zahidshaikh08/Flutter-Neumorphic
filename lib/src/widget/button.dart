@@ -50,8 +50,8 @@ class NeumorphicButton extends StatefulWidget {
   final Widget? child;
   final NeumorphicStyle? style;
   final double minDistance;
-  final EdgeInsets? padding;
-  final EdgeInsets? margin;
+  final EdgeInsetsGeometry? padding;
+  final EdgeInsetsGeometry? margin;
   final bool? pressed; //null, true, false
   final Duration duration;
   final Curve curve;

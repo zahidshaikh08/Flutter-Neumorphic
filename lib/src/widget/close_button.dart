@@ -5,7 +5,7 @@ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 class NeumorphicCloseButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final NeumorphicStyle? style;
-  final EdgeInsets? padding;
+  final EdgeInsetsGeometry? padding;
 
   const NeumorphicCloseButton({
     Key? key,
