@@ -1,12 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
-import '../theme/neumorphic_theme.dart';
-import '../widget/app_bar.dart';
-import 'animation/animated_scale.dart';
-import 'container.dart';
+import '../widget/animation/animated_scale.dart' as a;
 
 typedef void NeumorphicButtonClickListener();
 
@@ -197,7 +192,7 @@ class _NeumorphicButtonState extends State<NeumorphicButton> {
         hasTapUp = true;
         _resetIfTapUp();
       },
-      child: AnimatedScale(
+      child: a.AnimatedScale(
         scale: _getScale(),
         child: Neumorphic(
           margin: widget.margin ?? const EdgeInsets.all(0),
